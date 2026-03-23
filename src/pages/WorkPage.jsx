@@ -1,6 +1,26 @@
 import React from "react";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import { motion } from "framer-motion";
 import Footer from "../components/Footer";
+
+/* ================== ANIMATION VARIANTS ================== */
+
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 60, scale: 0.95 },
+  visible: { opacity: 1, y: 0, scale: 1 },
+};
+
+/* ================== PROJECT CARD ================== */
+
 function ProjectCard({
   title,
   description,
@@ -9,11 +29,16 @@ function ProjectCard({
   live,
   tech = [],
   status = "LIVE",
-  dis
+  dis,
 }) {
   return (
-    <div className="bg-[#f7f7f7da] rounded-[30px]  p-4 w-full sm:w-[90%] md:w-full max-w-[470px] shadow-xl  transition duration-300">
-      
+    <motion.div
+      variants={cardVariants}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      whileHover={{ scale: 1.05, y: -6 }}
+      whileTap={{ scale: 0.98 }}
+      className="bg-[#f7f7f7da] rounded-[30px] p-4 w-full sm:w-[90%] md:w-full max-w-[470px] shadow-xl"
+    >
       {/* IMAGE */}
       <div className="relative rounded-[25px] overflow-hidden">
         <img
@@ -36,7 +61,7 @@ function ProjectCard({
             href={github}
             target="_blank"
             rel="noreferrer"
-            className="bg-white/20 z-9999 backdrop-blur-md text-white p-2 rounded-full border border-white/30 hover:bg-white/30 transition"
+            className="bg-white/20 backdrop-blur-md text-white p-2 rounded-full border border-white/30 hover:bg-white/30 transition"
           >
             <FaGithub />
           </a>
@@ -45,7 +70,7 @@ function ProjectCard({
             href={live}
             target="_blank"
             rel="noreferrer"
-            className="bg-white/20 z-9999 backdrop-blur-md text-white p-2 rounded-full border border-white/30 hover:bg-white/30 transition"
+            className="bg-white/20 backdrop-blur-md text-white p-2 rounded-full border border-white/30 hover:bg-white/30 transition"
           >
             <FaExternalLinkAlt />
           </a>
@@ -55,10 +80,11 @@ function ProjectCard({
       {/* DETAILS */}
       <div className="mt-4 bg-[#ffffff] rounded-[20px] p-4 flex justify-between items-center">
         <div className="p-2">
-          <h4 className="text-sm font-semibold text-gray-700">Desctiption</h4>
-          <p className="text-xs text-gray-400">
-            {dis}
-          </p>
+          <h4 className="text-sm font-semibold text-gray-700">
+            Description
+          </h4>
+
+          <p className="text-xs text-gray-400">{dis}</p>
 
           <div className="flex flex-wrap gap-4 mt-3 text-sm text-gray-700">
             {tech.map((item, index) => (
@@ -70,7 +96,7 @@ function ProjectCard({
           </div>
         </div>
 
-        {/* Status */}
+        {/* STATUS */}
         <div className="w-60 h-[70px] bg-white rounded-2xl px-2 flex items-center justify-center shadow-sm">
           <span
             className={`text-xs font-semibold ${
@@ -81,16 +107,23 @@ function ProjectCard({
           </span>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
+
+/* ================== WORK PAGE ================== */
 
 function WorkPage() {
   return (
     <div className="px-4 sm:px-6 md:px-10 py-10">
       
       {/* HEADER */}
-      <div className="flex flex-col justify-center items-center text-center mb-10">
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="flex flex-col justify-center items-center text-center mb-10"
+      >
         <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
           Selected Work
         </h2>
@@ -109,18 +142,22 @@ function WorkPage() {
             smooth, interactive frontends.
           </span>
         </p>
-      </div>
+      </motion.div>
 
       {/* PROJECT GRID */}
-      <div className="grid grid-cols-1 lg:px-30 lg:grid-cols-2 gap-8 place-items-center">
-        
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        className="grid grid-cols-1 lg:px-30 lg:grid-cols-2 gap-8 place-items-center"
+      >
         <ProjectCard
           title="AI Event Planner"
           description="Smart event recommendations"
           image="/images/aiec.png"
           github="https://github.com/sunnnymudgal/ai-event-concierge"
           live="https://ai-event-concierge-blue.vercel.app/"
-          dis="An intelligent event planning system that leverages AI to recommend personalized events, optimize schedules, and enhance user experience with smart suggestions and automation."
+          dis="An intelligent event planning system that leverages AI to recommend personalized events."
           tech={[
             { name: "React", type: "Frontend" },
             { name: "ExpressJS", type: "Backend" },
@@ -134,7 +171,7 @@ function WorkPage() {
           image="/images/tbb.png"
           github="https://github.com/sunnnymudgal/TheBrandBird"
           live="https://thebrandbird.vercel.app/"
-          dis="A modern branding platform designed to help businesses build a strong digital identity. It offers tools for creating logos, managing brand assets, and maintaining visual consistency across platforms."
+          dis="A modern branding platform to build strong digital identity."
           tech={[
             { name: "React", type: "Frontend" },
             { name: "ExpressJS", type: "Backend" },
@@ -148,15 +185,16 @@ function WorkPage() {
           github="https://github.com/sunnnymudgal/BlueBird"
           live="#"
           status="GITHUB"
-          dis="An e-commerce clothing platform designed for a seamless shopping experience. It allows users to browse trendy collections, explore product details, and purchase outfits with a smooth and user-friendly interface."
+          dis="An e-commerce clothing platform for seamless shopping experience."
           tech={[
             { name: "Java", type: "Core" },
             { name: "Spring Boot", type: "Backend" },
             { name: "MySQL", type: "Database" },
           ]}
         />
-      </div>
-  <Footer/>
+      </motion.div>
+
+      <Footer />
     </div>
   );
 }

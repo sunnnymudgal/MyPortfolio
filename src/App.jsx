@@ -4,7 +4,7 @@ import HomePage from "./pages/HomePage";
 import WorkPage from "./pages/WorkPage";
 import Cursor from "./components/Cursor";
 import Lenis from "@studio-freight/lenis";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import { BrowserRouter } from "react-router-dom";
 
 function App() {
@@ -26,29 +26,37 @@ function App() {
       lenis.destroy();
     };
   }, []);
+  function ScrollToTop() {
+    const { pathname } = useLocation();
+    useEffect(() => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth", 
+      });
+    }, [pathname]);
+
+    return null;
+  }
 
   return (
-     <BrowserRouter>
-    <div className="md:relative bg-secondary min-h-screen">
-      
-      {/* Custom Cursor */}
-      <div className="max-md:hidden pointer-events-none">
-        <Cursor />
-      </div>
+    <BrowserRouter>
+      <div className="md:relative bg-secondary min-h-screen">
+        <div className="max-md:hidden pointer-events-none">
+          <Cursor />
+        </div>
 
-      {/* Navbar */}
-      <div className="md:fixed md:top-0 w-full z-50">
-        <Nav />
-      </div>
+        <div className="md:fixed md:top-0 w-full z-50">
+          <Nav />
+        </div>
 
-      {/* Pages */}
-      <div className="md:pl-30 pt-20">
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/work" element={<WorkPage />} />
-        </Routes>
+        <div className="md:pl-30 pt-20">
+            <ScrollToTop />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/work" element={<WorkPage />} />
+          </Routes>
+        </div>
       </div>
-    </div>
     </BrowserRouter>
   );
 }
