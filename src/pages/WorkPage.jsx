@@ -35,7 +35,7 @@ function ProjectCard({
     <motion.div
       variants={cardVariants}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      whileHover={{ scale: 1.05, y: -6 }}
+      // whileHover={{ scale: 1.05, y: -6 }}
       whileTap={{ scale: 0.98 }}
       className="bg-[#f7f7f7da] rounded-[30px] p-4 w-full sm:w-[90%] md:w-full max-w-[470px] shadow-xl"
     >
@@ -56,7 +56,7 @@ function ProjectCard({
         </div>
 
         {/* Buttons */}
-        <div className="absolute bottom-4 right-4 flex gap-2 z-9999">
+        <div className="absolute bottom-4 right-4 flex gap-2">
           <a
             href={github}
             target="_blank"

@@ -45,7 +45,7 @@ function App() {
           <Cursor />
         </div>
 
-        <div className="md:fixed md:top-0 w-full z-50">
+        <div className="md:fixed md:top-0">
           <Nav />
         </div>
 
