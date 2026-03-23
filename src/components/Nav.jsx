@@ -23,33 +23,31 @@ function Nav() {
             {/* DESKTOP MENU */}
             <div className="hidden sm:flex gap-10 text-sm">
               <div>
-
-              <Link to="/">
-                <motion.a whileHover={{ scale: 1.08 }}
-                            whileTap={{ scale: 0.95 }}
-                            className="relative inline-flex items-center gap-2 px-3 w-full py-1 justify-baseline rounded-2xl 
+                <Link to="/">
+                  <motion.a
+                    whileHover={{ scale: 1.08 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="relative inline-flex items-center gap-2 px-3 w-full py-1 justify-baseline rounded-2xl 
                     bg-white/10 backdrop-blur-md border border-white/20 
                     text-white font-medium shadow-lg z-9999 overflow-hidden"
-                          >
-                          
-            
-                <div className="cursor-pointer text-xl">HOME</div></motion.a>
-              </Link>
-            </div>
-            <div>
-             <Link to="/works">
-                <motion.a
-                            whileHover={{ scale: 1.08 }}
-                            whileTap={{ scale: 0.95 }}
-                            className="relative inline-flex items-center gap-2 px-3 w-full py-1 justify-baseline rounded-2xl 
+                  >
+                    <div className="cursor-pointer text-xl">HOME</div>
+                  </motion.a>
+                </Link>
+              </div>
+              <div>
+                <Link to="/work">
+                  <motion.a
+                    whileHover={{ scale: 1.08 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="relative inline-flex items-center gap-2 px-3 w-full py-1 justify-baseline rounded-2xl 
                     bg-white/10 backdrop-blur-md border border-white/20 
                     text-white font-medium shadow-lg z-9999 overflow-hidden"
-                          >
-                          
-            
-                <div className="cursor-pointer text-xl">WORKS</div></motion.a>
-              </Link>
-            </div>
+                  >
+                    <div className="cursor-pointer text-xl">WORKS</div>
+                  </motion.a>
+                </Link>
+              </div>
               {/* <div className="cursor-pointer hover:text-gray-400 transition">
                 GALLERY
               </div> */}
@@ -77,8 +75,13 @@ function Nav() {
           {/* MOBILE MENU */}
           {menuOpen && (
             <div className="sm:hidden mt-5 flex flex-col gap-6 text-center text-lg bg-secondary py-6 rounded-xl shadow-lg">
-              <div className="cursor-pointer">HOME</div>
-              <div className="cursor-pointer">WORKS</div>
+              <Link to="/">
+                {" "}
+                <div className="cursor-pointer">HOME</div>
+              </Link>
+              <Link to="/work">
+                <div className="cursor-pointer">WORKS</div>
+              </Link>
               {/* <div className="cursor-pointer">GALLERY</div> */}
 
               {/* SOCIAL ICONS */}
@@ -96,58 +99,47 @@ function Nav() {
         <div className="flex flex-col justify-between items-start h-screen w-fit py-2  text-primary px-3 max-md:hidden">
           <div className=" flex flex-col justify-between mt-5 gap-5">
             <div>
-
               <Link to="/">
-                <motion.a whileHover={{ scale: 1.08 }}
-                            whileTap={{ scale: 0.95 }}
-                            className="relative inline-flex items-center gap-2 px-3 w-full py-1 justify-baseline rounded-2xl 
+                <motion.a
+                  whileHover={{ scale: 1.08 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="relative inline-flex items-center gap-2 px-3 w-full py-1 justify-baseline rounded-2xl 
                     bg-white/10 backdrop-blur-md border border-white/20 
                     text-white font-medium shadow-lg z-9999 overflow-hidden"
-                          >
-                          
-            
-                <div className="cursor-pointer text-xl">HOME</div></motion.a>
+                >
+                  <div className="cursor-pointer text-xl">HOME</div>
+                </motion.a>
               </Link>
             </div>
             <div>
-             <Link to="/works">
+              <Link to="/work">
                 <motion.a
-                            whileHover={{ scale: 1.08 }}
-                            whileTap={{ scale: 0.95 }}
-                            className="relative inline-flex items-center gap-2 px-3 w-full py-1 justify-baseline rounded-2xl 
+                  whileHover={{ scale: 1.08 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="relative inline-flex items-center gap-2 px-3 w-full py-1 justify-baseline rounded-2xl 
                     bg-white/10 backdrop-blur-md border border-white/20 
                     text-white font-medium shadow-lg z-9999 overflow-hidden"
-                          >
-                          
-            
-                <div className="cursor-pointer text-xl">WORKS</div></motion.a>
+                >
+                  <div className="cursor-pointer text-xl">WORKS</div>
+                </motion.a>
               </Link>
             </div>
             {/* <div className="cursor-pointer">GALLERY</div> */}
           </div>
           <div className="text-4xl flex flex-col justify-between gap-3 h-1/2 pb-28">
-           
-              <a href="https://www.linkedin.com/in/sunny-mudgal/">
-              
-                  <FaLinkedin />
-            
-              </a>
-          
-        
-              <a href="https://github.com/sunnnymudgal">
-                {" "}
-              
-                  <FaGithub />
-            
-              </a>
-               
-              <a href="mailto:sunnyxmudgal@gmail.com">
-                {" "}
-              
-                  <CiMail />
-         
-              </a>
-        
+            <a href="https://www.linkedin.com/in/sunny-mudgal/">
+              <FaLinkedin />
+            </a>
+
+            <a href="https://github.com/sunnnymudgal">
+              {" "}
+              <FaGithub />
+            </a>
+
+            <a href="mailto:sunnyxmudgal@gmail.com">
+              {" "}
+              <CiMail />
+            </a>
 
             <a href="https://x.com/sunnnymudgal">
               <FaXTwitter />
