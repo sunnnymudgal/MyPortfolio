@@ -56,12 +56,12 @@ function ProjectCard({
         </div>
 
         {/* Buttons */}
-        <div className="absolute bottom-4 right-4 flex gap-2">
+        <div className="absolute bottom-4 right-4 flex gap-2 z-9999">
           <a
             href={github}
             target="_blank"
             rel="noreferrer"
-            className="bg-white/20 backdrop-blur-md z-9999 text-white p-2 rounded-full border border-white/30 hover:bg-white/30 transition"
+            className="bg-white/20 backdrop-blur-md text-white p-2 rounded-full border border-white/30 hover:bg-white/30 transition"
           >
             <FaGithub />
           </a>
@@ -70,7 +70,7 @@ function ProjectCard({
             href={live}
             target="_blank"
             rel="noreferrer"
-            className="bg-white/20 backdrop-blur-md z-9999 text-white p-2 rounded-full border border-white/30 hover:bg-white/30 transition"
+            className="bg-white/20 backdrop-blur-md text-white p-2 rounded-full border border-white/30 hover:bg-white/30 transition"
           >
             <FaExternalLinkAlt />
           </a>
