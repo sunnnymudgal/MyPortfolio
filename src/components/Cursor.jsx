@@ -73,7 +73,7 @@ const Cursor = () => {
 
       {/* 🎯 Main Cursor */}
       <motion.div
-        className="fixed top-0 left-0 pointer-events-none z-[9999] hover:z-0"
+        className="fixed top-0 left-0 pointer-events-none hover:z-0"
         animate={{
           x: position.x - 12,
           y: position.y - 12,

@@ -1,7 +1,9 @@
-import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { FiDownload } from "react-icons/fi";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { FaXTwitter } from "react-icons/fa6";
+
 
 export default function Footer() {
   return (
@@ -34,7 +36,7 @@ export default function Footer() {
         {/* CENTER */}
         <div>
           <h3 className="text-white font-semibold mb-4">Quick Links</h3>
-          <ul className="space-y-2 text-sm">
+          <ul className="space-y-2 text-sm flex flex-col">
             <Link to="/">Home</Link>
            <Link to="/work">Works</Link>
           </ul>
@@ -45,19 +47,19 @@ export default function Footer() {
           <h3 className="text-white font-semibold mb-4">Connect</h3>
 
           <div className="flex gap-4 text-xl">
-            <a href="https://github.com/" target="_blank" className="hover:text-white transition">
+            <a href="https://github.com/sunnnymudgal" target="_blank" className="hover:text-white transition z-999">
               <FaGithub />
             </a>
-            <a href="https://linkedin.com/" target="_blank" className="hover:text-white transition">
+            <a href="https://www.linkedin.com/in/sunny-mudgal/" target="_blank" className="hover:text-white transition z-999">
               <FaLinkedin />
             </a>
-            <a href="https://instagram.com/" target="_blank" className="hover:text-white transition">
-              <FaInstagram />
+            <a href="https://x.com/sunnnymudgal" target="_blank" className="hover:text-white transition z-9999">
+              <FaXTwitter />
             </a>
           </div>
 
           <p className="mt-4 text-sm text-gray-400">
-            Let’s build something amazing 
+            Let's build something amazing 
           </p>
         </div>
       </div>

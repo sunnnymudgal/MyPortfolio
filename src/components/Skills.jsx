@@ -24,27 +24,18 @@ import { motion } from "framer-motion";
 
 function TechLogo({ logo: Logo, logoName, bg, color }) {
   return (
-    
-    // <motion.a
-    //   whileHover={{ scale: 1.08 }}
-    //   whileTap={{ scale: 0.95 }}
-    //   className="relative inline-flex items-center gap-2 rounded-2xl m-1
-    //   bg-white/10 backdrop-blur-md border border-white/20 
-    //   text-white font-medium shadow-lg z-9999 overflow-hidden"
-    // >
-    //   {/* Glow Effect */}
-    //   <span className="absolute inset-0 bg-gradient-to-r  from-blue-400/20 to-cyan-400/20 opacity-0 hover:opacity-100 transition duration-300" />
-       <div
+  <div className=" bg-[#ffffff37] rounded-md m-[2px]">
+    <a>     <div
          className={`
-         ${bg} text-white text-xs sm:text-sm rounded-md m-[6px]
+         ${bg} text-white text-xs sm:text-sm rounded-md m-[3px]
          flex items-center w-fit px-3 sm:px-4 py-2 gap-2
-         uppercase tracking-[1px] cursor-pointer z-9999
+         uppercase tracking-[1px] md:z-9999
        `}
       >
         <Logo className={`${color} text-lg sm:text-xl`} />
         {logoName}
-      </div>
-    //{/* </motion.a> */}
+      </div></a>
+  </div>
   );
 }
 

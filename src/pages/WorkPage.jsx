@@ -1,6 +1,6 @@
 import React from "react";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
-
+import Footer from "../components/Footer";
 function ProjectCard({
   title,
   description,
@@ -36,7 +36,7 @@ function ProjectCard({
             href={github}
             target="_blank"
             rel="noreferrer"
-            className="bg-white/20 z-9999 backdrop-blur-md cursor-none text-white p-2 rounded-full border border-white/30 hover:bg-white/30 transition"
+            className="bg-white/20 z-9999 backdrop-blur-md text-white p-2 rounded-full border border-white/30 hover:bg-white/30 transition"
           >
             <FaGithub />
           </a>
@@ -45,7 +45,7 @@ function ProjectCard({
             href={live}
             target="_blank"
             rel="noreferrer"
-            className="bg-white/20 z-9999 backdrop-blur-md cursor-none text-white p-2 rounded-full border border-white/30 hover:bg-white/30 transition"
+            className="bg-white/20 z-9999 backdrop-blur-md text-white p-2 rounded-full border border-white/30 hover:bg-white/30 transition"
           >
             <FaExternalLinkAlt />
           </a>
@@ -118,7 +118,7 @@ function WorkPage() {
           title="AI Event Planner"
           description="Smart event recommendations"
           image="/images/aiec.png"
-          github="#"
+          github="https://github.com/sunnnymudgal/ai-event-concierge"
           live="https://ai-event-concierge-blue.vercel.app/"
           dis="An intelligent event planning system that leverages AI to recommend personalized events, optimize schedules, and enhance user experience with smart suggestions and automation."
           tech={[
@@ -132,7 +132,7 @@ function WorkPage() {
           title="Business Portfolio"
           description="Seamless design experience"
           image="/images/tbb.png"
-          github="#"
+          github="https://github.com/sunnnymudgal/TheBrandBird"
           live="https://thebrandbird.vercel.app/"
           dis="A modern branding platform designed to help businesses build a strong digital identity. It offers tools for creating logos, managing brand assets, and maintaining visual consistency across platforms."
           tech={[
@@ -145,7 +145,7 @@ function WorkPage() {
           title="E-Commerce"
           description="Shopping"
           image="/images/bbe.png"
-          github="#"
+          github="https://github.com/sunnnymudgal/BlueBird"
           live="#"
           status="GITHUB"
           dis="An e-commerce clothing platform designed for a seamless shopping experience. It allows users to browse trendy collections, explore product details, and purchase outfits with a smooth and user-friendly interface."
@@ -155,8 +155,8 @@ function WorkPage() {
             { name: "MySQL", type: "Database" },
           ]}
         />
-
       </div>
+  <Footer/>
     </div>
   );
 }
