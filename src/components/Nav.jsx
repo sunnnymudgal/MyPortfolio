@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 import {
   FaLinkedin,
@@ -18,137 +18,119 @@ function Nav() {
   return (
     <>
       <div className="md:hidden">
-        <nav className="w-full bg-secondary text-primary px-5 md:px-10 py-4 fixed top-0 left-0 z-50 backdrop-blur-md">
-          <div className="flex justify-between items-center max-md:items-end">
-            {/* DESKTOP MENU */}
-            <div className="hidden sm:flex gap-10 text-sm">
-              <div>
-                <Link to="/">
-                  <motion.a
-                    whileHover={{ scale: 1.08 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="relative inline-flex items-center gap-2 px-3 w-full py-1 justify-baseline rounded-2xl 
-                    bg-white/10 backdrop-blur-md border border-white/20 
-                    text-white font-medium shadow-lg z-9999 overflow-hidden"
-                  >
-                    <div className="cursor-pointer text-xl">HOME</div>
-                  </motion.a>
-                </Link>
-              </div>
-              <div>
-                <Link to="/work">
-                  <motion.a
-                    whileHover={{ scale: 1.08 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="relative inline-flex items-center gap-2 px-3 w-full py-1 justify-baseline rounded-2xl 
-                    bg-white/10 backdrop-blur-md border border-white/20 
-                    text-white font-medium shadow-lg z-9999 overflow-hidden"
-                  >
-                    <div className="cursor-pointer text-xl">WORKS</div>
-                  </motion.a>
-                </Link>
-              </div>
-              {/* <div className="cursor-pointer hover:text-gray-400 transition">
-                GALLERY
-              </div> */}
-            </div>
+        <nav className="w-full bg-secondary text-primary px-5 py-4 fixed top-0 left-0 z-50 backdrop-blur-md">
+          <div className="flex justify-between items-center">
+            
+            {/* LOGO / NAME */}
+            <div className="text-lg font-semibold">Sunny</div>
 
-            {/* SOCIAL ICONS (DESKTOP) */}
-            <div className="hidden sm:flex gap-5 text-2xl">
-              <FaLinkedin className="cursor-pointer hover:scale-110 transition" />
-              <FaInstagram className="cursor-pointer hover:scale-110 transition" />
-              <FaGithub className="cursor-pointer hover:scale-110 transition" />
-              <CiMail className="cursor-pointer hover:scale-110 transition" />
-              <FaXTwitter className="cursor-pointer hover:scale-110 transition" />
-            </div>
-
-            {/* MOBILE MENU BUTTON */}
-            <div className="sm:hidden text-2xl cursor-pointer">
+            {/* MENU BUTTON */}
+            <div className="text-2xl cursor-pointer">
               {menuOpen ? (
-                <HiX onClick={() => setMenuOpen(false)} />
+                <HiX
+                  onClick={() => setMenuOpen(false)}
+                  className="transition-transform duration-300 hover:rotate-90"
+                />
               ) : (
-                <HiMenu onClick={() => setMenuOpen(true)} />
+                <HiMenu
+                  onClick={() => setMenuOpen(true)}
+                  className="transition-transform duration-300 hover:scale-110"
+                />
               )}
             </div>
           </div>
 
           {/* MOBILE MENU */}
-          {menuOpen && (
-            <div className="sm:hidden mt-5 flex flex-col gap-6 text-center text-lg bg-secondary py-6 rounded-xl shadow-lg">
-              <Link to="/">
-                {" "}
-                <div className="cursor-pointer">HOME</div>
-              </Link>
-              <Link to="/work">
-                <div className="cursor-pointer">WORKS</div>
-              </Link>
-              {/* <div className="cursor-pointer">GALLERY</div> */}
+          <AnimatePresence>
+            {menuOpen && (
+              <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.3 }}
+                className="mt-5 flex flex-col gap-6 text-center text-lg bg-secondary py-6 rounded-xl shadow-lg"
+              >
+                <Link to="/" onClick={() => setMenuOpen(false)}>
+                  <div className="cursor-pointer hover:text-gray-400 transition">
+                    HOME
+                  </div>
+                </Link>
 
-              {/* SOCIAL ICONS */}
-              <div className="flex justify-center gap-6 text-2xl mt-4">
-                <FaLinkedin />
-                <FaGithub />
-                <CiMail />
-                <FaXTwitter />
-              </div>
-            </div>
-          )}
+                <Link to="/work" onClick={() => setMenuOpen(false)}>
+                  <div className="cursor-pointer hover:text-gray-400 transition">
+                    WORKS
+                  </div>
+                </Link>
+
+                {/* SOCIAL ICONS */}
+                <div className="flex justify-center gap-6 text-2xl mt-4">
+                  <a href="https://www.linkedin.com/in/sunny-mudgal/">
+                    <FaLinkedin />
+                  </a>
+                  <a href="https://github.com/sunnnymudgal">
+                    <FaGithub />
+                  </a>
+                  <a href="mailto:sunnyxmudgal@gmail.com">
+                    <CiMail />
+                  </a>
+                  <a href="https://x.com/sunnnymudgal">
+                    <FaXTwitter />
+                  </a>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </nav>
       </div>
-      <div>
-        <div className="flex flex-col justify-between items-start h-screen w-fit py-2  text-primary px-3 max-md:hidden">
-          <div className=" flex flex-col justify-between mt-5 gap-5">
-            <div>
-              <Link to="/">
-                <motion.a
-                  whileHover={{ scale: 1.08 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="relative inline-flex items-center gap-2 px-3 w-full py-1 justify-baseline rounded-2xl 
-                    bg-white/10 backdrop-blur-md border border-white/20 
-                    text-white font-medium shadow-lg z-9999 overflow-hidden"
-                >
-                  <div className="cursor-pointer text-xl">HOME</div>
-                </motion.a>
-              </Link>
-            </div>
-            <div>
-              <Link to="/work">
-                <motion.a
-                  whileHover={{ scale: 1.08 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="relative inline-flex items-center gap-2 px-3 w-full py-1 justify-baseline rounded-2xl 
-                    bg-white/10 backdrop-blur-md border border-white/20 
-                    text-white font-medium shadow-lg z-9999 overflow-hidden"
-                >
-                  <div className="cursor-pointer text-xl">WORKS</div>
-                </motion.a>
-              </Link>
-            </div>
-            {/* <div className="cursor-pointer">GALLERY</div> */}
-          </div>
-          <div className="text-4xl flex flex-col justify-between gap-3 h-1/2 pb-28">
-            <a href="https://www.linkedin.com/in/sunny-mudgal/">
-              <FaLinkedin />
-            </a>
 
-            <a href="https://github.com/sunnnymudgal">
-              {" "}
-              <FaGithub />
-            </a>
+      <div className="hidden md:flex flex-col justify-between items-start h-screen w-fit py-2 text-primary px-3">
+        
+        {/* MENU LINKS */}
+        <div className="flex flex-col mt-5 gap-5">
+          <Link to="/">
+            <motion.div
+              whileHover={{ scale: 1.08 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-3 py-1 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-white shadow-lg cursor-pointer"
+            >
+              HOME
+            </motion.div>
+          </Link>
 
-            <a href="mailto:sunnyxmudgal@gmail.com">
-              {" "}
-              <CiMail />
-            </a>
+          <Link to="/work">
+            <motion.div
+              whileHover={{ scale: 1.08 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-3 py-1 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-white shadow-lg cursor-pointer"
+            >
+              WORKS
+            </motion.div>
+          </Link>
+        </div>
 
-            <a href="https://x.com/sunnnymudgal">
-              <FaXTwitter />
-            </a>
-          </div>
-          <div className="flex items-center gap-1 text-xs">
-            <FaRegCopyright />
-            SunnyMudgal
-          </div>
+        {/* SOCIAL ICONS */}
+        <div className="text-3xl flex flex-col gap-4 pb-20">
+          <a href="https://www.linkedin.com/in/sunny-mudgal/">
+            <FaLinkedin />
+          </a>
+
+          <a href="https://github.com/sunnnymudgal">
+            <FaGithub />
+          </a>
+
+          <a href="mailto:sunnyxmudgal@gmail.com">
+            <CiMail />
+          </a>
+
+          <a href="https://x.com/sunnnymudgal">
+            <FaXTwitter />
+          </a>
+        </div>
+
+        {/* FOOTER */}
+        <div className="flex items-center gap-1 text-xs">
+          <FaRegCopyright />
+          SunnyMudgal
         </div>
       </div>
     </>
