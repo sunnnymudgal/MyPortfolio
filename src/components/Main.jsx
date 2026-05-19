@@ -125,16 +125,7 @@ function Main() {
                 </span>
               </motion.a>
 
-              {/* CONTACT BUTTON */}
-              <motion.button
-                whileHover={{
-                  scale: 1.05,
-                }}
-                whileTap={{ scale: 0.95 }}
-                className="px-6 py-3 rounded-2xl border border-white/10 hover:bg-white/10 transition duration-300"
-              >
-                Contact Me
-              </motion.button>
+             
             </motion.div>
           </div>
 
