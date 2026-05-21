@@ -290,7 +290,7 @@ function WorkPage() {
           description="Advanced finance tracking and analytics platform"
           image="/images/fd.png"
           github="https://github.com/sunnnymudgal/Finance-Dashboard"
-          status="live"
+          status="LIVE"
           live="https://finance-dashboard-n6ak.onrender.com/"
           dis="A modern finance dashboard for tracking income, expenses, analytics, PDF reports, category insights, smart filtering, charts, and transaction history with a premium UI."
           tech={[
