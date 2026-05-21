@@ -269,24 +269,37 @@ function WorkPage() {
         "
       >
 
-        {/* STAFFPRO */}
+        {/* BUSINESS PORTFOLIO */}
         <ProjectCard
-          title="EMS"
-          description="Enterprise employee management system"
-          image="/images/ems.png"
-          github="https://github.com/sunnnymudgal/thebrandbird-ems"
-          live={null}
-          status="SPRING BOOT"
-          dis="A modern employee management platform built using Java Spring Boot with scalable backend architecture, authentication, dashboard analytics, and AWS EC2 deployment."
+          title="Business Portfolio"
+          description="Modern branding platform"
+          image="/images/tbb.png"
+          github="https://github.com/sunnnymudgal/TheBrandBird"
+          live="https://thebrandbird.vercel.app/"
+          status="LIVE"
+          dis="A sleek business portfolio platform designed to create strong digital branding and immersive user experiences."
           tech={[
-            { name: "Java", type: "Backend" },
-            { name: "Spring Boot", type: "Framework" },
-            { name: "MySQL", type: "Database" },
-            { name: "AWS EC2", type: "Deployment" },
+            { name: "React", type: "Frontend" },
+            { name: "Framer Motion", type: "Animation" },
+            { name: "ExpressJS", type: "Backend" },
           ]}
         />
 
-       
+       <ProjectCard
+          title="Finance Dashboard"
+          description="Advanced finance tracking and analytics platform"
+          image="/images/fd.png"
+          github="https://github.com/sunnnymudgal/Finance-Dashboard"
+          status="live"
+          live="https://finance-dashboard-n6ak.onrender.com/"
+          dis="A modern finance dashboard for tracking income, expenses, analytics, PDF reports, category insights, smart filtering, charts, and transaction history with a premium UI."
+          tech={[
+            { name: "Spring Boot", type: "Backend" },
+            { name: "Thymeleaf", type: "Frontend" },
+            { name: "MySQL", type: "Database" },
+            { name: "TailwindCSS", type: "UI" },
+          ]}
+        />
 
         {/* PRODUCT SHOWCASE */}
         <ProjectCard
@@ -318,22 +331,23 @@ function WorkPage() {
             { name: "Tailwind CSS", type: "Styling" },
           ]}
         />
-
-        {/* BUSINESS PORTFOLIO */}
+ {/* STAFFPRO */}
         <ProjectCard
-          title="Business Portfolio"
-          description="Modern branding platform"
-          image="/images/tbb.png"
-          github="https://github.com/sunnnymudgal/TheBrandBird"
-          live="https://thebrandbird.vercel.app/"
-          status="LIVE"
-          dis="A sleek business portfolio platform designed to create strong digital branding and immersive user experiences."
+          title="EMS"
+          description="Enterprise employee management system"
+          image="/images/ems.png"
+          github="https://github.com/sunnnymudgal/thebrandbird-ems"
+          live={null}
+          status="SPRING BOOT"
+          dis="A modern employee management platform built using Java Spring Boot with scalable backend architecture, authentication, dashboard analytics, and AWS EC2 deployment."
           tech={[
-            { name: "React", type: "Frontend" },
-            { name: "Framer Motion", type: "Animation" },
-            { name: "ExpressJS", type: "Backend" },
+            { name: "Java", type: "Backend" },
+            { name: "Spring Boot", type: "Framework" },
+            { name: "MySQL", type: "Database" },
+            { name: "AWS EC2", type: "Deployment" },
           ]}
         />
+       
 
         {/* BLUEBIRD */}
         <ProjectCard
