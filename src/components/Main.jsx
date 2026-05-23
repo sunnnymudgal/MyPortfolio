@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { FiDownload } from "react-icons/fi";
 import HeroTerminal from "./HeroTerminal";
 import HeroOrbit from "./HeroOrbit";
+import { FaLink } from "react-icons/fa";
 function Main() {
   const firstName = "SUNNY";
   const lastName = "MUDGAL";
@@ -109,8 +110,8 @@ function Main() {
             >
               {/* DOWNLOAD CV */}
               <motion.a
-                href="/Sunny_Mudgal_CV.pdf"
-                download
+                href="https://drive.google.com/file/d/1bpN_F29NPYcQjypI6xVHviF_Q-cWqLSX/view?usp=sharing"
+                target="_blank"
                 whileHover={{
                   scale: 1.05,
                   y: -2,
@@ -120,10 +121,10 @@ function Main() {
               >
                 <span className="absolute inset-0 bg-gradient-to-r from-pink-500/20 to-cyan-500/20 opacity-0 group-hover:opacity-100 transition duration-500"></span>
 
-                <FiDownload className="text-lg relative z-10" />
+              <FaLink className="text-lg relative z-10" />
 
                 <span className="relative z-10 font-medium tracking-wide">
-                  Download CV
+                  Resume
                 </span>
               </motion.a>
 
