@@ -296,7 +296,7 @@ function WorkPage() {
           image="/images/fd.png"
           github="https://github.com/sunnnymudgal/Finance-Dashboard"
           status="BACKEND PROJECT"
-          live="https://finance-dashboard-n6ak.onrender.com/"
+          // live="https://finance-dashboard-n6ak.onrender.com/"
           dis="A modern finance dashboard for tracking income, expenses, analytics, PDF reports, category insights, smart filtering, charts, and transaction history with a premium UI."
           tech={[
             { name: "Spring Boot", type: "Backend" },
