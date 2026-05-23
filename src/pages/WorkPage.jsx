@@ -51,13 +51,17 @@ function ProjectCard({
         group
         relative
         w-full
-        max-w-[520px]
+        h-full
+        min-h-[600px]
+        max-w-[540px]
         rounded-[2rem]
         overflow-hidden
         border
         border-white/10
         bg-white/[0.03]
         backdrop-blur-2xl
+        flex
+        flex-col
       "
     >
       {/* IMAGE */}
@@ -71,7 +75,7 @@ function ProjectCard({
           }}
           src={image}
           alt={title}
-          className="w-full h-[240px] object-cover"
+          className="w-full h-[280px] object-cover"
         />
 
         {/* OVERLAY */}
@@ -93,7 +97,7 @@ function ProjectCard({
       </div>
 
       {/* DETAILS */}
-      <div className="p-6">
+      <div className="p-6 flex flex-col flex-1">
 
         {/* DESCRIPTION */}
         <p className="text-gray-400 leading-relaxed">
@@ -127,7 +131,7 @@ function ProjectCard({
         </div>
 
         {/* BOTTOM ACTIONS */}
-        <div className="flex items-center justify-between mt-8">
+        <div className="flex items-center justify-between mt-auto pt-8">
 
           {/* STATUS */}
           <span
@@ -261,9 +265,9 @@ function WorkPage() {
         className="
           grid
           grid-cols-1
-          xl:grid-cols-2
-          gap-10
-          place-items-center
+          lg:grid-cols-2
+          gap-12
+          items-stretch
           max-w-7xl
           mx-auto
         "
@@ -285,12 +289,13 @@ function WorkPage() {
           ]}
         />
 
-       <ProjectCard
+        {/* FINANCE DASHBOARD */}
+        <ProjectCard
           title="Finance Dashboard"
           description="Advanced finance tracking and analytics platform"
           image="/images/fd.png"
           github="https://github.com/sunnnymudgal/Finance-Dashboard"
-          status="LIVE"
+          status="BACKEND PROJECT"
           live="https://finance-dashboard-n6ak.onrender.com/"
           dis="A modern finance dashboard for tracking income, expenses, analytics, PDF reports, category insights, smart filtering, charts, and transaction history with a premium UI."
           tech={[
@@ -331,7 +336,8 @@ function WorkPage() {
             { name: "Tailwind CSS", type: "Styling" },
           ]}
         />
- {/* STAFFPRO */}
+
+        {/* EMS */}
         <ProjectCard
           title="EMS"
           description="Enterprise employee management system"
@@ -347,7 +353,6 @@ function WorkPage() {
             { name: "AWS EC2", type: "Deployment" },
           ]}
         />
-       
 
         {/* BLUEBIRD */}
         <ProjectCard
@@ -365,7 +370,7 @@ function WorkPage() {
           ]}
         />
 
-         {/* AI EVENT */}
+        {/* AI EVENT */}
         <ProjectCard
           title="AI Event Planner"
           description="Smart AI event recommendations"

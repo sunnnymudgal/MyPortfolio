@@ -30,7 +30,6 @@ import {
   SiHibernate,
   SiMysql,
   SiPostgresql,
-  SiRedux,
   SiNextdotjs,
   SiGradle,
   SiVite,
@@ -43,25 +42,50 @@ import {
 import { TbBrandCpp } from "react-icons/tb";
 import { VscVscode } from "react-icons/vsc";
 
-import { IoLogoHtml5 } from "react-icons/io";
-
 import { motion } from "framer-motion";
+
+const containerVariants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.12,
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: {
+    opacity: 0,
+    y: 70,
+    scale: 0.95,
+  },
+  show: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.8,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+};
 
 function TechLogo({ logo: Logo, logoName, color }) {
   return (
     <motion.div
       whileHover={{
-        y: -4,
-        scale: 1.03,
+        y: -6,
+        scale: 1.05,
       }}
       transition={{
         type: "spring",
         stiffness: 250,
+        damping: 15,
       }}
-      className="group relative rounded-2xl overflow-hidden"
+      className="group relative"
     >
-      {/* GLOW */}
-      <div className="absolute inset-0 bg-gradient-to-r from-pink-500/10 to-cyan-500/10 opacity-0 group-hover:opacity-100 transition duration-500 rounded-2xl"></div>
+      {/* OUTER GLOW */}
+      <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-pink-500/10 to-cyan-500/10 opacity-0 blur-xl transition-all duration-500 group-hover:opacity-100"></div>
 
       {/* CARD */}
       <div
@@ -69,25 +93,25 @@ function TechLogo({ logo: Logo, logoName, color }) {
           relative
           flex
           items-center
-          gap-2
+          gap-3
           px-4
           py-3
           rounded-2xl
-          bg-white/[0.04]
-          backdrop-blur-xl
+          bg-white/[0.05]
           border
           border-white/10
-          text-sm
-          tracking-wide
+          backdrop-blur-xl
           transition-all
           duration-300
-          hover:border-pink-400/20
-          hover:bg-white/[0.07]
+          hover:bg-white/[0.08]
+          hover:border-cyan-400/20
+          shadow-[0_0_0_rgba(0,0,0,0)]
+          hover:shadow-[0_0_30px_rgba(34,211,238,0.08)]
         "
       >
         <Logo className={`text-xl ${color}`} />
 
-        <span className="text-gray-200">
+        <span className="text-gray-200 text-sm tracking-wide">
           {logoName}
         </span>
       </div>
@@ -98,28 +122,42 @@ function TechLogo({ logo: Logo, logoName, color }) {
 function SkillCard({ title, children }) {
   return (
     <motion.div
+      variants={cardVariants}
       whileHover={{
-        y: -5,
+        y: -10,
       }}
       transition={{
         type: "spring",
-        stiffness: 200,
+        stiffness: 120,
       }}
       className="
+        group
+        relative
+        overflow-hidden
         rounded-3xl
         border
         border-white/10
-        bg-white/[0.03]
+        bg-white/[0.04]
         backdrop-blur-2xl
         p-6
+        md:p-7
       "
     >
-      <h3 className="text-lg font-semibold mb-5 text-white tracking-wide">
-        {title}
-      </h3>
+      {/* HOVER GRADIENT */}
+      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700 bg-gradient-to-br from-cyan-500/[0.06] via-transparent to-pink-500/[0.06]"></div>
 
-      <div className="flex flex-wrap gap-3">
-        {children}
+      {/* TOP LIGHT */}
+      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+
+      {/* CONTENT */}
+      <div className="relative z-10">
+        <h3 className="text-lg md:text-xl font-semibold mb-6 text-white tracking-wide">
+          {title}
+        </h3>
+
+        <div className="flex flex-wrap gap-3">
+          {children}
+        </div>
       </div>
     </motion.div>
   );
@@ -127,32 +165,72 @@ function SkillCard({ title, children }) {
 
 function Skills() {
   return (
-    <section className="relative bg-secondary text-primary px-6 md:px-16 py-24 overflow-hidden">
-      {/* BACKGROUND GLOW */}
-      <div className="absolute inset-0 -z-10 overflow-hidden">
-        <div className="absolute top-[10%] left-[10%] w-[250px] h-[250px] bg-pink-500/10 blur-[120px] rounded-full"></div>
+    <section className="relative bg-secondary text-primary px-6 md:px-16 py-28 overflow-hidden">
 
-        <div className="absolute bottom-[10%] right-[10%] w-[250px] h-[250px] bg-cyan-500/10 blur-[120px] rounded-full"></div>
+      {/* BACKGROUND */}
+      <div className="absolute inset-0 -z-10 overflow-hidden">
+
+        {/* GRID */}
+        <div className="absolute inset-0 opacity-[0.03]">
+          <div className="h-full w-full bg-[linear-gradient(to_right,#ffffff10_1px,transparent_1px),linear-gradient(to_bottom,#ffffff10_1px,transparent_1px)] bg-[size:5rem_5rem]" />
+        </div>
+
+        {/* ORBS */}
+        <motion.div
+          animate={{
+            y: [0, -30, 0],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute top-[10%] left-[5%] w-[280px] h-[280px] bg-pink-500/10 blur-[120px] rounded-full"
+        />
+
+        <motion.div
+          animate={{
+            y: [0, 40, 0],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute bottom-[10%] right-[5%] w-[300px] h-[300px] bg-cyan-500/10 blur-[120px] rounded-full"
+        />
       </div>
 
       {/* TITLE */}
-      <div className="mb-16">
-        <p className="uppercase tracking-[0.3em] text-xs text-gray-500 mb-3">
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7 }}
+        className="mb-20"
+      >
+        <p className="uppercase tracking-[0.35em] text-xs text-gray-500 mb-4">
           Expertise
         </p>
 
-        <h2 className="text-3xl md:text-5xl font-semibold">
+        <h2 className="text-4xl md:text-6xl font-semibold leading-tight">
           Technologies & Tools
         </h2>
-      </div>
+      </motion.div>
 
       {/* GRID */}
-      <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.15 }}
+        className="grid md:grid-cols-2 xl:grid-cols-3 gap-6"
+      >
 
-        {/* PROGRAMMING LANGUAGES */}
+        {/* PROGRAMMING */}
         <SkillCard title="Programming Languages">
           <TechLogo logo={FaJava} logoName="Java" color="text-orange-400" />
-          <TechLogo logo={TbBrandCpp} logoName="" color="text-blue-400" />
+          <TechLogo logo={TbBrandCpp} logoName="C++" color="text-blue-400" />
           <TechLogo logo={FaPython} logoName="Python" color="text-yellow-300" />
           <TechLogo logo={RiJavascriptFill} logoName="JavaScript" color="text-yellow-400" />
           <TechLogo logo={SiMysql} logoName="SQL" color="text-blue-300" />
@@ -179,7 +257,7 @@ function Skills() {
           <TechLogo logo={FaNodeJs} logoName="REST APIs" color="text-green-400" />
         </SkillCard>
 
-        {/* BUILD TOOLS */}
+        {/* BUILD */}
         <SkillCard title="Build & Dependency">
           <TechLogo logo={SiGradle} logoName="Gradle" color="text-cyan-400" />
           <TechLogo logo={SiGradle} logoName="Maven" color="text-orange-300" />
@@ -187,14 +265,14 @@ function Skills() {
           <TechLogo logo={SiVite} logoName="Vite" color="text-violet-400" />
         </SkillCard>
 
-        {/* DATABASES */}
+        {/* DATABASE */}
         <SkillCard title="Databases">
           <TechLogo logo={SiMysql} logoName="MySQL" color="text-blue-400" />
           <TechLogo logo={SiMongodb} logoName="MongoDB" color="text-green-400" />
           <TechLogo logo={SiPostgresql} logoName="PostgreSQL" color="text-cyan-400" />
         </SkillCard>
 
-        {/* DEVELOPER TOOLS */}
+        {/* DEV TOOLS */}
         <SkillCard title="Developer Tools">
           <TechLogo logo={FaGitAlt} logoName="Git" color="text-orange-400" />
           <TechLogo logo={FaGithub} logoName="GitHub" color="text-white" />
@@ -204,7 +282,7 @@ function Skills() {
           <TechLogo logo={VscVscode} logoName="VS Code" color="text-blue-400" />
         </SkillCard>
 
-        {/* DATA & ANALYTICS */}
+        {/* DATA */}
         <SkillCard title="Data & Analytics">
           <TechLogo logo={FaFileExcel} logoName="Microsoft Excel" color="text-green-400" />
           <TechLogo logo={FaFileExcel} logoName="Power BI" color="text-yellow-400" />
@@ -224,7 +302,8 @@ function Skills() {
           <TechLogo logo={SiGnubash} logoName="Deployment" color="text-cyan-300" />
           <TechLogo logo={SiGnubash} logoName="WHM/cPanel" color="text-gray-300" />
         </SkillCard>
-      </div>
+
+      </motion.div>
     </section>
   );
 }

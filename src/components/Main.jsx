@@ -1,6 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FiDownload } from "react-icons/fi";
+import HeroTerminal from "./HeroTerminal";
+import HeroOrbit from "./HeroOrbit";
 function Main() {
   const firstName = "SUNNY";
   const lastName = "MUDGAL";
@@ -130,41 +132,8 @@ function Main() {
           </div>
 
           {/* RIGHT SIDE */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.5 }}
-            className="relative flex items-center justify-center"
-          >
-            {/* FLOATING GLOW */}
-            <motion.div
-              animate={{
-                y: [0, -15, 0],
-              }}
-              transition={{
-                repeat: Infinity,
-                duration: 4,
-                ease: "easeInOut",
-              }}
-              className="relative"
-            >
-              {/* OUTER GLOW */}
-              <div className="absolute inset-0 bg-pink-400 blur-[80px] opacity-20 rounded-full"></div>
-
-              {/* MAIN CIRCLE */}
-              <div className="w-52 h-52 md:w-72 md:h-72 rounded-full border border-white/10 bg-white/5 backdrop-blur-3xl flex items-center justify-center">
-                <div className="text-center">
-                  <h2 className="text-2xl md:text-3xl font-semibold">
-                    Building
-                  </h2>
-
-                  <p className="text-gray-400 mt-2 text-sm md:text-base">
-                    Modern Digital Experiences
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
+          {/* <HeroTerminal/> */}
+          <HeroOrbit/>
         </div>
 
         {/* ABOUT SECTION */}
