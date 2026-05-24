@@ -299,7 +299,6 @@ function Skills() {
           <TechLogo logo={FaAws} logoName="AWS S3" color="text-orange-300" />
           <TechLogo logo={SiLinux} logoName="Linux Basics" color="text-yellow-300" />
           <TechLogo logo={SiVite} logoName="Vercel" color="text-white" />
-          <TechLogo logo={SiGnubash} logoName="Deployment" color="text-cyan-300" />
           <TechLogo logo={SiGnubash} logoName="WHM/cPanel" color="text-gray-300" />
         </SkillCard>
 
